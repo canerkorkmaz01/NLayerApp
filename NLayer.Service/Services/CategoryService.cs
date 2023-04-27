@@ -22,9 +22,11 @@ namespace NLayer.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<CustomResponseDto<CategoryWithProductsDto>> GetCategoryWithProductsAsync(int categoryId)
+    
+
+      async Task<CustomResponseDto<CategoryWithProductsDto>> ICategoryService.GetCategoryWithProductsAsync(int categoryId)
         {
-          var category = await _categoryRepository.GetSingleCategoryByIdWithProductsAsync(categoryId);  
+            var category = await _categoryRepository.GetSingleCategoryByIdWithProductsAsync(categoryId);
 
             var categoryDto = _mapper.Map<CategoryWithProductsDto>(category);
 
